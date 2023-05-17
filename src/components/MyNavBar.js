@@ -42,11 +42,6 @@ const MyNavBar = (props) => {
       alert(error.response.data.errors[0].message);
     }
   };
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("loggedIn");
-    history.push("/");
-  };
   return (
     <>
       <Modal show={show} onHide={handleClose} className="login_modal">
