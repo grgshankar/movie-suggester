@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --white: #fff;
+}
+.logo-wrapper {
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+}
+nav .navbar-text a {
+  color: var(--white);
+  text-decoration: none;
+}
+nav .navbar-text a:hover,
+nav .navbar-text a:focus {
+  color: var(--white);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div#navbarScroll {
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+div#navbarScroll button.btn.btn-primary {
+  background: transparent;
+  border: none;
+}
+.movie_list img {
+  width: 100%;
+}
+.movie_list button.bg-dark {
+  border: none;
+}
+.login_modal .modal-body {
+  padding: 30px;
+}
+.dropdown-menu.show {
+  background: #222529;
+  box-shadow: 0px 0px 10px #000;
+}
+a#navbarScrollingDropdown:focus {
+  color: #fff;
+}
+a#navbarScrollingDropdown:focus {
+  color: #fff;
+}
+.dropdown-menu.show a {
+  padding: 10px 10px;
+  border-bottom: 1px solid #6e6e6e;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropdown-menu.show a:hover {
+  background: #000;
+}
+.dropdown-menu.show {
+  right: 0px !important;
+  left: initial !important;
+  width: 200px !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dropdown-menu.show strong,
+.dropdown-menu.show span {
+  color: #fff !important;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown-menu.show ul {
+  padding: 0px;
+  margin: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown-menu.show ul li {
+  list-style: none;
+  display: block;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.dropdown-menu.show ul li:last-child {
+  border-bottom: none;
+}
+ul.profile_details button {
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  color: #f36565;
+  text-transform: uppercase;
+}
+button.btn_close {
+  padding: 0px;
+  background: transparent;
+  color: #c03939;
+  border: none;
+  font-size: 34px;
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+button.btn_close:hover {
+  background: transparent;
+  color: #c03939;
+}
+.modal-body button[type="submit"] {
+  background: #323232;
+  border: none;
+  padding: 10px 27px;
+}
+.movie_list .img-wrapper {
+  margin-bottom: 15px;
+}
+.details_page {
+  margin-top: 30px;
+}
+.details_page img {
+  margin-bottom: 30px;
+}
+.details_page p {
+  display: block;
 }
