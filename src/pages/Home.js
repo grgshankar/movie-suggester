@@ -6,7 +6,7 @@ import SingleMovie from "./SingleMovie";
 
 const Home = (props) => {
   const [movies, setMovies] = useState([]);
-  // const [searchMovieText, setSearchMovieText] = useState("");
+  const [searchMovieText, setSearchMovieText] = useState("");
   //   const [errorText, setErrorText] = useState("");
   useEffect(() => {
     getMovies();
