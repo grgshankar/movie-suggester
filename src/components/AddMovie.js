@@ -45,7 +45,7 @@ const AddMovie = (props) => {
         <>
           <MyNavBar />
           <Container>
-            <Card style={{ padding: "30px", marginTop: "30px" }}>
+            <Card style={{ padding: "29px", marginTop: "30px" }}>
               <Form className="form_wrapper" onSubmit={addMovieHandler}>
                 <Form.Group className="mb-3">
                   <Form.Label>Movie Title</Form.Label>
