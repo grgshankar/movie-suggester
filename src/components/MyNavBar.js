@@ -10,15 +10,20 @@ import {
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { RiCloseCircleFill } from "react-icons/ri";
 import Profile from "./Profile";
 
-const MyNavBar = (props) => {
+const MyNavBar = ({ showAlert, value, onChange }) => {
+  // console.log("props=", props);
   const history = useHistory();
   const getEmail = useRef();
   const getPassword = useRef();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    showAlert("");
+  };
   const loginHandler = async (e) => {
     e.preventDefault();
     const loginData = {
@@ -41,6 +46,18 @@ const MyNavBar = (props) => {
     } catch (error) {
       alert(error.response.data.errors[0].message);
     }
+  };
+  const removeAlert = () => {
+    showAlert("");
+  };
+  const errorHandler = () => {
+    console.log("props=", showAlert);
+    showAlert(
+      <p className="alert_message">
+        You're not LoggedIn!!! Please login{" "}
+        <RiCloseCircleFill onClick={removeAlert} />
+      </p>
+    );
   };
   return (
     <>
@@ -93,8 +110,8 @@ const MyNavBar = (props) => {
                     placeholder="Search Movie"
                     className="me-2"
                     aria-label="Search"
-                    value={props.value}
-                    onChange={(e) => props.onChange(e.target.value)}
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
                   />
                 </Form>
               </>
@@ -103,7 +120,17 @@ const MyNavBar = (props) => {
             )}
 
             <Navbar.Text className="me-2">
-              <Link to="/add_movie">Add Movie</Link>
+              {localStorage.getItem("loggedIn") ? (
+                <>
+                  <Link to="/add_movie">Add Movie</Link>
+                </>
+              ) : (
+                <>
+                  <button onClick={errorHandler} className="unsuccessed">
+                    Add Movie
+                  </button>
+                </>
+              )}
             </Navbar.Text>
             <Navbar.Text>
               {localStorage.getItem("loggedIn") ? (

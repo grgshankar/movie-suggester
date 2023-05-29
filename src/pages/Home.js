@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, Link } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import MyNavBar from "../components/MyNavBar";
 import SingleMovie from "./SingleMovie";
@@ -7,7 +7,7 @@ import SingleMovie from "./SingleMovie";
 const Home = (props) => {
   const [movies, setMovies] = useState([]);
   const [searchMovieText, setSearchMovieText] = useState("");
-  //   const [errorText, setErrorText] = useState("");
+  const [errorText, setErrorText] = useState("");
   useEffect(() => {
     getMovies();
   }, []);
@@ -41,10 +41,18 @@ const Home = (props) => {
       }
     }
   };
+  const showAlert = (text) => {
+    setErrorText(text);
+  };
   return (
     <>
-      <MyNavBar value={searchMovieText} onChange={setSearchMovieText} />
+      <MyNavBar
+        value={searchMovieText}
+        onChange={setSearchMovieText}
+        showAlert={showAlert}
+      />
       <Container>
+        {errorText}
         <Row className="movie_row mt-4 mb-4">
           {movies.map((data) => (
             <SingleMovie key={data.id} data={data} />

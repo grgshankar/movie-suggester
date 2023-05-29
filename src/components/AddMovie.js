@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Card, Container, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MyNavBar from "./MyNavBar";
 
-const AddMovie = () => {
+const AddMovie = (props) => {
   const history = useHistory();
   const movie_ref = useRef("");
   const rating_ref = useRef("");
@@ -30,6 +30,7 @@ const AddMovie = () => {
       );
       console.log(response);
       history.push("/home");
+      alert(response.data.message);
     } catch (error) {
       if (error.response) {
         alert(error.response.data.errors[0].message);
@@ -74,10 +75,7 @@ const AddMovie = () => {
           </Container>
         </>
       ) : (
-        <>
-          {alert("please fill up the form")}
-          {history.push("/")}
-        </>
+        <>{history.push("/")}</>
       )}
     </div>
   );

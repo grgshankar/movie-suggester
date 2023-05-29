@@ -126,3 +126,24 @@ button.btn_close:hover {
 .details_page p {
   display: block;
 }
+p.alert_message {
+  background: #db2f2f;
+  padding: 10px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr fit-content(20px);
+  margin-top: 10px;
+}
+
+p.alert_message svg {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+}
+button.unsuccessed {
+  border: none;
+  background: none;
+  color: #fff;
+}
